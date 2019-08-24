@@ -1,0 +1,19 @@
+## MySQL y R
+
+Este guión fue creado por Rladies Concepción. En este taller trabajamos
+Luisa Reyes, Natalia Riquelme, Macarena Valenzuela y Camila Molina. 
+
+¡¡Hola!! Bienvenid @ al quinto taller de R-Ladies Concepción !, queremos que te
+sientas cómod @ y con la libertad de plantearnos cualquier tipo de duda, estamos
+para apoyarte!
+
+install.packages("RMariaDB")
+library(RMariaDB)
+localuserpassword <- "*******"
+#library(RMariaDB)
+# The connection method below uses a password stored in a variable.  
+# To use this set localuserpassword="The password of newspaper_search_results_user" 
+
+storiesDb <- dbConnect(RMariaDB::MariaDB(), user='newspaper_search_results_user', password=localuserpassword, dbname='newspaper_search_results', host='localhost')
+dbListTables(storiesDb)
+dbDisconnect(storiesDb)
