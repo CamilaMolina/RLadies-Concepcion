@@ -1,0 +1,240 @@
+---
+title: "Rmarkdown"
+author: "R-Ladies Concepción"
+date: "5 de septiembre de 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+```
+
+-**LIBRERIAS**
+```{r}
+library(rmarkdown)
+#library(tinytex)
+#library(latexpdf)
+#tinytex::install_tinytex()
+```
+
+
+-**INTRODUCCION**
+
+-*Instalaciones*
+Para que funciones este editor de texto debes instalar dos software: 
+1.-Rstudio IDE 
+2.-Si no tienes Rstudio, debes instalar pandoc. Rstudio tiene incluido Pandoc
+
+Adicionalmente, debes instalar el paquete de Rmarkdown
+
+1.- Lo puedes instalar desde el CRAN con el paso de la librería incluida.
+2.- Lo puedes instalar haciendo el script.
+
+
+Si tù quieres testear el desarrollo de esta versión, instala el paquete desde el Github y sus paquetes de desarrollo
+
+
+Si tú quieres generar un resultado PDF, necesitarás instalar LaTeX. Para los usuarios de Rmarkdown que no han instalado LaTeX es recomendable instalar tinytex.
+
+Este paquete es un portable, ligero, fácil y cross plataforma package para mantener la distribución de LaTeX en Rmarkdown.
+
+En conclusión con Rmarkdown, Rstudio/Pandoc y LaTeX podremos jugar y hacer maravillas de textos en esta interface.
+
+
+-**COMENCEMOS A ESCRIBIR**
+
+Para escribir texto normal, no es necesario ninguna especificación: Texto plano.
+Termina línea con dos espacios para nuevo párrafo o línea. Es decir, para hacer punto a parte solo tipea dos espacios.
+
+-*PARA ESCRIBIR EN NEGRITA*
+
+Para escribir en negrita puedes escribir el texto entre ** (doble asterisco) o entre __ (doble guión bajo)  
+**negrita** y __negrita__  
+
+-*PARA ESCRIBIR TACHADO*
+
+Para escribir tachado, debes poner el texto entre ~  
+~~tachado~~  
+
+-*PARA ESCRIBIR EN CURSIVA*
+
+Se usa * ? -
+*esto está en cursiva*
+-esto también está en cursiva-
+ -**Se pueden usar combinados también**-
+ 
+-*Creación de superíndices*
+
+360^?^= 360?
+H~2~O
+
+-*Creación símbolos espaciales*
+Guiones - -- ---_ 
+Puntos suspensivos ...
+Apertura y cierre de comillas "hola", 'adiós'
+
+-*¿Cómo evitar que markdown "interprete" un símbolo?
+\*-\
+
+
+-**ENCABEZADOS**-
+
+# Este es un encabezado de primer nivel
+
+#### Este es un encabezado de cuarto nivel
+
+-*Creación de citas o bloques*
+
+> Esta es una anotación de una cita literal. Se puede completar en varias líneas.
+
+-*Creación de listas*
+
+Se puede generar listas sin orden con los siguientes símbolos
++,*,-
+
++ un elemento
+* dos elementos
+- tres elementos
+
+-*Creación lista numerada*
+con el número correspondiente al orden.
+
+1. Un elemento
+2. Dos elementos
+3. Tres elementos
+
+-*Letras*
+
+ - minúsculas
+ a. ejemplo
+ b. mas ejemplo
+ 
+-mayúscula
+ A) ejemplo
+ B) mas ejemplo
+ 
+-Numeración romana
+ -minúscula
+ i. ejemplo
+ ii. mas ejemplo
+ 
+ -mayúscula
+ I) ejemplo
+ II) mas ejemplo
+ 
+-*Listas subordinadas*
+
+Si añadimos cuatro espacios antes de un elemento de una lista, lo convertimos en subordinado del nivel del párrafo anterior. Así:
+
+* Uno 
+  * Dos 
+    * Tres 
+    * Cuatro 
+  * Otro dos
+
+-*Proporciona*
+
+* Uno 
+  
+  - Dos 
+    ??? Tres 
+    ??? Cuatro 
+ 
+  - Otro dos
+
+Pueden alternase lista numeradas y no numeradas:
+
+* Uno 
+  
+  a. Dos 
+    i. Tres 
+    i. Cuatro 
+  
+  b. Otro dos
+  
+. Uno 
+  
+  a. Dos 
+    i. Tres 
+    ii. Cuatro 
+  
+  b. Otro dos
+
+-*Insertado de códigos o chunk*
+
+ctrl + alt + i
+para crear "eslabón" o enlaces, debemos poner el "nombre" del enlace entre [] (corchetes)  
+y sin espaciar el link entre () (paréntesis)  
+
+[GitHub](http://www.github.com)  
+
+-*Insertado de imágenes*
+
+Insertar imágenes es similar la inserción de enlaces. Si lo hay que poner un signo de exclamación "!" delante del índice de la imagen:
+
+![2017-12-20 Laguna San Pedro](C:/Users/Renata Molina/Desktop/FOTOS2/2017-12-20 Laguna San Pedro.jpg)
+
+
+-*Fórmulas matemáticas*
+
+Markdown ha heredado el potencial de LaTeX para generar formulas con una tipografía adecuada y elegante. Con estas podemos escribir lo que deseemos. Gracias a esta opción podemos distinguir fotográficamente las variables matemáticas o estadísticas de los objetos o variables en R: 
+
+la variable x se asocia al objeto x. 
+
+La variable $x$ se asocia al objeto `x`. 
+
+La fracción 1 entre n se consigue: 
+
+$$\frac{1}{n}$$
+
+y su potencia n:
+
+1 n2 
+
+$$\left( \frac{1}{n} \right) ^ 2 $$ 
+
+y la raíz cuadrada: 
+
+$$\sqrt{ \left( \frac{1}{n} \right) ^ 2 }$$ 
+s1 n2 
+
+-*Citas y referencias Bibliográficas*
+
+ +Primero hay que especificar el archivo bibliográfico que vamos a usar, insertándolo desde los metadatos. cabe escribirlos en el mismo documento, como un inline reference. 
+ . Los datos de bibliografía puede usarse multitud de formatos. 
+ . Para crear una cita insertamos el identificador del documento precedido de @ 
+ . El sistema se encargará de generar el apartado de referencias, y tanto estas como las citas ser realizarón con el formato especificado.
+ 
+Dentro de un texto como dijo @Perez2010 ...
+
+Como se ha demostrado [@Perez2010] ...
+
+Dentro de un texto como dijo Perez (2010) utilizar la cabeza y un modo racional de trabajo puede ahorrar muchos dolores de idem. 
+
+Como se ha demostrado (Perez 2010) los automatas son un alivio en tareas rutinarias.
+
+*Referencias*
+
+Perez, P. 2010. Este es el título del artículo. Este es el nombre de la revista 6:13-21.
